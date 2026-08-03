@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://kit.fontawesome.com/5b7b940d8e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section class="landing">
+        <div class="nav__container">
+            <figure class="banner__figure">
+                <img src="./assets/banner.jpg" alt="" class="banner__img">
+            </figure>
+            <nav>
+                <div class="logo__container">
+                    <a href="#footer" class="logo">
+                        <i class="fa-solid fa-film" style="color: #2e2320;"></i>
+                        <h1 class="website__title">FilmStack</h1>
+                    </a>
+                </div>
+                <ul class="nav__links">
+                    <li><a href="#home" class="nav__link">Home</a></li>
+                    <li><a href="#library" class="nav__link">Library</a></li>
+                    <li><a href="#about" class="nav__link">About</a></li>
+                    <li><a href="#contact" class="nav__link">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="nav__search">
+                <h1 class="section__title">Search Films</h1>
+                <input type="text" placeholder="Search by Genre, Title, or Keyword" class="search__input">
+            </div>
+        </div>
+    </section>
+    <section id="about" class="about">
+        <div class="about__container">
+            <h1 class="about__title">About FilmStack</h1>
+            <div class="about__description--container">
+                <p class="about__description">
+                    We're a platform for film enthusiasts to discover, explore, and share their favorite movies.
+                    Whether you're a casual viewer or a dedicated cinephile, FilmStack offers a comprehensive library of films across various genres and eras. 
+                    Our mission is to connect people through the love of cinema, providing a space where you can find recommendations, reviews, and discussions about the films that inspire and entertain us all.
+                    We also offer a personalized experience, allowing users to create watchlists, rate films, and receive tailored suggestions based on their viewing history.
+                    If you're interested in purchasing or renting films, we provide links to trusted platforms where you can do so.
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="library">
+        <div class="library__container">
+            <h1 class="library__title">Our Film Library</h1>
+            <select name="genre" id="genre-filter" class="filter">
+                <option value="">All Genres</option>
+                <option value="action">Action</option>
+                <option value="comedy">Comedy</option>
+                <option value="drama">Drama</option>
+            </select>
+            <div class="library__films"></div>
+        </div>
+    </section>
+    <footer id="footer" class="footer">
+        <div class="footer__container">
+            <ul class="nav__links">
+                <li><a href="#home" class="nav__link">Home</a></li>
+                <li><a href="#library" class="nav__link">Library</a></li>
+                <li><a href="#about" class="nav__link">About</a></li>
+                <li><a href="#contact" class="nav__link">Contact</a></li>
+            </ul>
+            <p class="footer__copyright">© 2023 FilmStack. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="index.js"></script>
+</body>
+</html>
