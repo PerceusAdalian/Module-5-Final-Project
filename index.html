@@ -5,71 +5,168 @@
     <link rel="stylesheet" href="styles.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>FilmStack - Movie Lovers' Library</title>
 </head>
 <body>
-    <section class="landing">
-        <div class="nav__container">
-            <figure class="banner__figure">
-                <img src="./assets/banner.jpg" alt="" class="banner__img">
-            </figure>
-            <nav>
-                <div class="logo__container">
-                    <a href="#footer" class="logo">
-                        <i class="fa-solid fa-film" style="color: #2e2320;"></i>
-                        <h1 class="website__title">FilmStack</h1>
-                    </a>
-                </div>
+    <section id="landing">
+        <nav>
+            <div class="nav__container">
+                <figure>
+                    <a href="#footer" class="logo__figure"><i class="fa-solid fa-film logo"></i><span class="logo__text">FilmStack</span></a>
+                </figure>
                 <ul class="nav__links">
-                    <li><a href="#home" class="nav__link">Home</a></li>
-                    <li><a href="#library" class="nav__link">Library</a></li>
-                    <li><a href="#about" class="nav__link">About</a></li>
-                    <li><a href="#contact" class="nav__link">Contact</a></li>
+                    <li><a href="#" class="nav__link link__hover-effect">Home</a></li>
+                    <li><a href="#" class="nav__link link__hover-effect">Contact</a></li>
+                    <li><a href="#featured" class="nav__link nav__link--primary">Movies</a></li>
                 </ul>
-            </nav>
-            <div class="nav__search">
-                <h1 class="section__title">Search Films</h1>
-                <input type="text" placeholder="Search by Genre, Title, or Keyword" class="search__input">
+                <div class="menu__container">
+                    <button class="btn__menu" onclick="openMenu()">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="menu__backdrop">
+                        <button class="btn__menu btn__menu--close" onclick="closeMenu()">
+                            <i class="fas fa-times"></i>
+                        </button>
+                        <ul class="menu__links">
+                            <li class="menu__list">
+                                <a href="#" class="menu__link link__hover-effect" onclick="closeMenu()">Home</a>
+                            </li>
+                            <li class="menu__list">
+                                <a href="#featured" class="menu__link link__hover-effect" onclick="closeMenu()">Movies</a>
+                            </li>
+                            <li class="menu__list">
+                                <a class="menu__link no-cursor" onclick="closeMenu()">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
-    <section id="about" class="about">
-        <div class="about__container">
-            <h1 class="about__title">About FilmStack</h1>
-            <div class="about__description--container">
-                <p class="about__description">
-                    We're a platform for film enthusiasts to discover, explore, and share their favorite movies.
-                    Whether you're a casual viewer or a dedicated cinephile, FilmStack offers a comprehensive library of films across various genres and eras. 
-                    Our mission is to connect people through the love of cinema, providing a space where you can find recommendations, reviews, and discussions about the films that inspire and entertain us all.
-                    We also offer a personalized experience, allowing users to create watchlists, rate films, and receive tailored suggestions based on their viewing history.
-                    If you're interested in purchasing or renting films, we provide links to trusted platforms where you can do so.
-                </p>
+        </nav>
+        <header>
+            <div class="header__container">
+                <div class="header__description">
+                    <h1 class="text--red website__title">Welcome to FilmStack</h1>
+                    <h2 class="website__subtitle">A small platform to help you find your next favorite movie.</h2>
+                    <a href="#featured" class="btn">Browse Movies</a>
+                </div>
+                <figure class="figure__">
+                    <img src="./assets/illustration_1.svg" alt="" class="img__">
+                </figure>
             </div>
-        </div>
+        </header>
     </section>
-    <section class="library">
-        <div class="library__container">
-            <h1 class="library__title">Our Film Library</h1>
-            <select name="genre" id="genre-filter" class="filter">
-                <option value="">All Genres</option>
-                <option value="action">Action</option>
-                <option value="comedy">Comedy</option>
-                <option value="drama">Drama</option>
-            </select>
-            <div class="library__films"></div>
-        </div>
-    </section>
-    <footer id="footer" class="footer">
-        <div class="footer__container">
-            <ul class="nav__links">
-                <li><a href="#home" class="nav__link">Home</a></li>
-                <li><a href="#library" class="nav__link">Library</a></li>
-                <li><a href="#about" class="nav__link">About</a></li>
-                <li><a href="#contact" class="nav__link">Contact</a></li>
-            </ul>
-            <p class="footer__copyright">© 2023 FilmStack. All rights reserved.</p>
-        </div>
-    </footer>
+
+    <main>
+        <section id="highlights">
+            <div class="container">
+                <div class="row">
+                    <h2 class="section__title">
+                        Why choose <span class="text--red">FilmStack</span>?
+                    </h2>
+                    <div class="highlight__wrapper">
+                        <div class="highlight">
+                            <div class="highlight__img">
+                                <i class="fa-solid fa-bolt-lightning" style="color: #ce3e3e;"></i>
+                            </div>
+                            <h3 class="highlight__subtitle">
+                                Easy and Quick
+                            </h3>
+                            <p class="highlight__paragraph">
+                                Stream, Rent, or Buy movies with instant delivery on virtual copies, and fast delivery on physical copies.
+                            </p>
+                        </div>
+                        <div class="highlight">
+                            <div class="highlight__img">
+                                <i class="fa-solid fa-video" style="color: #ce3e3e;"></i>
+                            </div>
+                            <h3 class="highlight__subtitle">
+                                Hundreds of Select Films
+                            </h3>
+                            <p class="highlight__paragraph">
+                                <span class="text--red" style="font-weight:bold;">FilmStack</span> has many fan favorites, hidden gems, and select feature films, with search utilities and day-time support services to help you get connected to your desired content.
+                            </p>
+                        </div>
+                        <div class="highlight">
+                            <div class="highlight__img">
+                                <i class="fa-solid fa-tags" style="color: #ce3e3e;"></i>
+                            </div>
+                            <h3 class="highlight__subtitle">
+                                Affordable
+                            </h3>
+                            <p class="highlight__paragraph">
+                                Our library is vast, and collecting can get pretty expensive. That's why we at <span class="text--red" style="font-weight: bold;">FilmStack</span> aim to deliver you your next favorite for as little as <em>$4.99</em>.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="featured">
+            <div class="container">
+                <div class="row">
+                    <h2 class="section__title">
+                        Featured <span class="text--red">Books</span>
+                    </h2>
+                    <div class="movies"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="recent">
+            <div class="container">
+                <div class="row">
+                    <div class="movies__header">
+                        <h2 class="section__title">
+                            <span class="text--red">Movie</span> Library
+                        </h2>
+                        <select name="" id="filter" class="movies__sorter" onchange="filterMovies(event)">
+                            <option value="" disabled selected>Sort</option>
+                            <option value="LOW_TO_HIGH">Price, Low to High</option>
+                            <option value="HIGH_TO_LOW">Price, High to Low</option>
+                            <option value="SALE">Price, on Sale</option>
+                            <option value="RATING">Rating</option>
+                        </select>
+                    </div>
+                    <div class="movies__rendered movies">
+                        <i class="fas fa-spinner movies__loading--spinner"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="explore">
+            <div class="container">
+                <div class="row">
+                    <h3 class="section__sub-title">
+                        Can't find what you're looking for?
+                    </h3>
+                    <h1 class="section__title">Check out the Vault</h1>
+                    <a href="#" class="btn">Open FilmStack Vault</a>
+                </div>
+            </div>
+        </section>
+
+        <footer id="footer">
+            <div class="container">
+                <div class="row">
+                    <figure>
+                        <a href="#" class="logo__figure"><i class="fa-solid fa-film logo"></i><span class="logo__text">FilmStack</span></a>
+                    </figure>
+                    <p class="moto text--red">
+                        Movie Collection Made Accessible
+                    </p>
+                    <div class="footer__list">
+                       <a href="#" class="footer__link">Home</a> 
+                       <a class="footer__link no-cursor">About</a> 
+                       <a href="#featured" class="footer__link">Books</a> 
+                       <a class="footer__link no-cursor">Contact</a> 
+                    </div>
+                    <div class="footer__copyright"><span class="text--red">&copy;</span> Copyright Library 2026</div>
+                </div>
+            </div>
+        </footer>
+    </main>
     <script src="index.js"></script>
 </body>
 </html>
