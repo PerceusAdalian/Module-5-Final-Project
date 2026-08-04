@@ -120,7 +120,7 @@
                         <h2 class="section__title">
                             <span class="text--red">Movie</span> Library
                         </h2>
-                        <select name="Sort" id="sort" class="movies__sorter" onchange="sortMovies(event)">
+                        <select name="Sort" id="sort" class="movies__sorter" onchange="handleSortChange(event)">
                             <option value="" disabled selected>Sort</option>
                             <option value="RATING_HIGH_TO_LOW">Rating, High to Low</option>
                             <option value="RATING_LOW_TO_HIGH">Rating, Low to High</option>
@@ -129,7 +129,7 @@
                             <option value="YEAR_NEWEST">Year, Newest</option>
                             <option value="YEAR_OLDEST">Year, Oldest</option>
                         </select>
-                        <select name="Genre" id="genre" class="movies__sorter" onchange="filterByGenre(event)">
+                        <select name="Genre" id="genre" class="movies__sorter" onchange="handleGenreChange(event)">
                             <option value="" selected>All Genres</option>
                             <option value="Action">Action</option>
                             <option value="Horror">Horror</option>

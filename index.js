@@ -1,4 +1,6 @@
-let movies;
+let allMovies = [];
+let currentSort = '';
+let currentGenre = '';
 
 async function searchMovies(query) {
     const response = await fetch('http://www.omdbapi.com/?' + new URLSearchParams({
@@ -36,11 +38,16 @@ function buildPlaceholderHTML(title) {
     </div>`;
 }
 
-async function renderMovies(data, filter) 
+async function renderMovies(data) 
 {
     const moviesWrapper = document.querySelector('.movies__rendered');
 
     const moviesHTML = data.map(data => {
+        // if (data === null || data.isEmpty())
+        // {
+        //     return ``
+        // }
+
         const posterHTML = hasValidPoster(data.Poster)
             ? `<img src="${data.Poster}" alt="${data.Title}" class="movie__card" data-title="${data.Title}">`
             : buildPlaceholderHTML(data.Title);
@@ -110,8 +117,27 @@ function filterByGenre(data, genre)
 
 async function initHomePage(query, filter) 
 {
-    const movies = await searchMovies(query);
-    renderMovies(movies, filter);
+    allMovies = await searchMovies(query);
+    applyFiltersAndSort();
+}
+
+function handleSortChange(event) 
+{
+    currentSort = event.target.value;
+    applyFiltersAndSort();
+}
+
+function handleGenreChange(event) 
+{
+    currentGenre = event.target.value;
+    applyFiltersAndSort();
+}
+
+function applyFiltersAndSort() 
+{
+    let result = filterByGenre(allMovies, currentGenre);
+    result = sortMovies(result, currentSort);
+    renderMovies(result);
 }
 
 initHomePage('Inception');
