@@ -462,6 +462,7 @@ p {
 
 .movie__card {
     max-height: 360px;
+    max-width: 240px;
     margin-bottom: 16px;
     border-radius: 8px;
     overflow: hidden;
@@ -476,19 +477,57 @@ p {
 }
 
 .movie__card--wrapper {
+    display: flex;
+    text-align: left;
+    align-content: start;
+    justify-content: start;
     margin-bottom: 8px;
 }
 
+.movie__card--placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    max-height: 360px;
+    max-width: 240px;
+    aspect-ratio: 2 / 3;
+    background-color: var(--color-bg-content-accent);
+    border: 2px dashed var(--color-border-accent);
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+}
+
+.movie__card--placeholder i {
+    font-size: 48px;
+    color: var(--color-border-accent);
+}
+
+.movie__card--placeholder span {
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--color-text-default);
+}
+
 .movie__description {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
     background-color: var(--color-bg-content);
     padding: 4px;
     border-radius: 10px;
 }
 
-.movie__price--normal {
-    color: var(--color-border-accent);
-    text-decoration: line-through 2px;
-    font-style: oblique;
+.movie__description p {
+    margin: 0 auto;
+    padding: 0px 4px 0px 4px;
+    max-width: 240px;
+    line-height: 1.1;
+    font-size: 12px;
+    font-weight: 400;
 }
 
 .movie__title {
