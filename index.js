@@ -28,7 +28,7 @@ async function handleSearch(query)
 
 async function searchMovies(query) 
 {
-    const response = await fetch('http://www.omdbapi.com/?' + new URLSearchParams({
+    const response = await fetch('https://www.omdbapi.com/?' + new URLSearchParams({
         apikey: 'aa8d4a8a',
         s: query
     }));
@@ -43,7 +43,7 @@ async function searchMovies(query)
     const fullMovies = await Promise.all(
         data.Search.map(async (movie) => 
         {
-            const detailRes = await fetch('http://www.omdbapi.com/?' + new URLSearchParams({
+            const detailRes = await fetch('https://www.omdbapi.com/?' + new URLSearchParams({
                 apikey: 'aa8d4a8a',
                 i: movie.imdbID
             }));
