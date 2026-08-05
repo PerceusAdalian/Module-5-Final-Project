@@ -42,12 +42,20 @@ async function renderMovies(data)
 {
     const moviesWrapper = document.querySelector('.movies__rendered');
 
-    const moviesHTML = data.map(data => {
-        // if (data === null || data.isEmpty())
-        // {
-        //     return ``
-        // }
+    if (!data || data.length === 0) {
+        moviesWrapper.innerHTML = `
+        <div class="movies__404">
+            <figure class="figure__">
+                <img src="./assets/no-data.svg" alt="No Results Found" class="img__">
+            </figure>
+            <span class="movies__404--text">{<i class="fa-solid fa-info"></i>}</span>
+            <h1 class="section__title">No Results Found</h1>
+        </div>
+            `;
+        return;
+    }
 
+    const moviesHTML = data.map(data => {
         const posterHTML = hasValidPoster(data.Poster)
             ? `<img src="${data.Poster}" alt="${data.Title}" class="movie__card" data-title="${data.Title}">`
             : buildPlaceholderHTML(data.Title);
@@ -71,9 +79,8 @@ async function renderMovies(data)
 
     moviesWrapper.innerHTML = moviesHTML;
 
-    // Catch images that had a valid-looking URL but failed to actually load
     moviesWrapper.querySelectorAll('.movie__card').forEach(img => {
-        if (img.tagName !== 'IMG') return; // skip ones already rendered as placeholders
+        if (img.tagName !== 'IMG') return;
 
         img.addEventListener('error', () => {
             const title = img.dataset.title;
