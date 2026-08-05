@@ -253,8 +253,8 @@ li {
 
 /* HEADER */
 #landing,
-#recent,
 #explore,
+#vault,
 #featured {
     background-color: var(--color-accent-bg-light);
 }
@@ -344,8 +344,8 @@ p {
 
 #highlights:before,
 #highlights:after,
-#recent:before,
-#recent:after {
+#explore:before,
+#explore:after {
     background: url('./assets/wave.svg');
     content: "";
     position: absolute;
@@ -358,7 +358,7 @@ p {
 }
 
 #highlights:before,
-#recent:before {
+#explore:before {
     top: 1px;
     transform: translateY(-100%);
     filter: drop-shadow(0 -6px 6px var(--color-accent-bg-dark));
@@ -366,7 +366,7 @@ p {
 }
 
 #highlights:after,
-#recent:after {
+#explore:after {
     bottom: 1px;
     transform: translateY(100%) rotate(180deg);
     filter: drop-shadow(0 6px 6px var(--color-accent-bg-dark));
@@ -435,7 +435,7 @@ p {
     min-height: 1000px;
 }
 
-#recent {
+#explore {
     position: relative;
     padding-left: 8vw;
     padding-right: 8vw;
@@ -592,8 +592,8 @@ input.movies__sorter:focus {
     font-weight: 700;
 }
 
-/* EXPLORE */
-#explore {
+/* vault */
+#vault {
     padding-left: 8vw;
     padding-right: 8vw;
     padding-top: 8vw;
