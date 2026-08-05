@@ -2,20 +2,47 @@ let allMovies = [];
 let currentSort = '';
 let currentGenre = '';
 
-async function searchMovies(query) {
+const searchInput = document.getElementById('search-input');
+searchInput.addEventListener('keydown', (event) => 
+{
+    if (event.key === 'Enter') 
+    {
+        handleSearch(event.target.value.trim());
+    }
+});
+
+async function handleSearch(query) 
+{
+    if (!query) return;
+    const moviesWrapper = document.querySelector('.movies__rendered');
+    moviesWrapper.innerHTML = `<i class="fas fa-spinner movies__loading--spinner"></i>`;
+
+    allMovies = await searchMovies(query);
+    currentSort = '';
+    currentGenre = '';
+
+    document.getElementById('sort').value = '';
+    document.getElementById('genre').value = '';
+    applyFiltersAndSort();
+}
+
+async function searchMovies(query) 
+{
     const response = await fetch('http://www.omdbapi.com/?' + new URLSearchParams({
         apikey: 'aa8d4a8a',
         s: query
     }));
     const data = await response.json();
 
-    if (data.Response === 'False') {
+    if (data.Response === 'False') 
+    {
         console.error(data.Error);
         return [];
     }
 
     const fullMovies = await Promise.all(
-        data.Search.map(async (movie) => {
+        data.Search.map(async (movie) => 
+        {
             const detailRes = await fetch('http://www.omdbapi.com/?' + new URLSearchParams({
                 apikey: 'aa8d4a8a',
                 i: movie.imdbID
@@ -27,22 +54,26 @@ async function searchMovies(query) {
     return fullMovies;
 }
 
-function hasValidPoster(poster) {
+function hasValidPoster(poster) 
+{
     return poster && poster !== 'N/A';
 }
 
-function buildPlaceholderHTML(title) {
+function buildPlaceholderHTML(title) 
+{
     return `<div class="movie__card movie__card--placeholder">
         <i class="fa-solid fa-film"></i>
         <span>${title}</span>
     </div>`;
 }
 
-async function renderMovies(data) 
+async function renderMovies(data, bool) 
 {
-    const moviesWrapper = document.querySelector('.movies__rendered');
+    let path = bool === true ? '.movies__featured' : '.movies__rendered';
+    const moviesWrapper = document.querySelector(path);
 
-    if (!data || data.length === 0) {
+    if (!data || data.length === 0) 
+    {
         moviesWrapper.innerHTML = `
         <div class="movies__404">
             <figure class="figure__">
@@ -50,12 +81,12 @@ async function renderMovies(data)
             </figure>
             <span class="movies__404--text">{<i class="fa-solid fa-info"></i>}</span>
             <h1 class="section__title">No Results Found</h1>
-        </div>
-            `;
+        </div>`;
         return;
     }
 
-    const moviesHTML = data.map(data => {
+    const moviesHTML = data.map(data => 
+    {
         const posterHTML = hasValidPoster(data.Poster)
             ? `<img src="${data.Poster}" alt="${data.Title}" class="movie__card" data-title="${data.Title}">`
             : buildPlaceholderHTML(data.Title);
@@ -65,7 +96,7 @@ async function renderMovies(data)
                 ${posterHTML}
             </figure>
             <div class="movie__description">
-                <a href="${data.imdbID}" class="movie__title">
+                <a class="movie__title">
                     ${data.Title} (${data.Year})
                 </a>
                 <div class="movie__ratings">
@@ -79,14 +110,22 @@ async function renderMovies(data)
 
     moviesWrapper.innerHTML = moviesHTML;
 
-    moviesWrapper.querySelectorAll('.movie__card').forEach(img => {
+    moviesWrapper.querySelectorAll('.movie__card').forEach(img => 
+    {
         if (img.tagName !== 'IMG') return;
 
-        img.addEventListener('error', () => {
+        img.addEventListener('error', () => 
+        {
             const title = img.dataset.title;
             img.outerHTML = buildPlaceholderHTML(title);
         }, { once: true });
     });
+}
+
+async function renderFeatureFilms() 
+{
+    let data = await searchMovies('Disney');
+    renderMovies(data, true);
 }
 
 function sortMovies(data, sortType) 
@@ -148,6 +187,7 @@ function applyFiltersAndSort()
 }
 
 initHomePage('Inception');
+renderFeatureFilms();
 
 function openMenu() 
 {

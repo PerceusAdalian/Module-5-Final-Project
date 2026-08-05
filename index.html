@@ -17,7 +17,7 @@
                 <ul class="nav__links">
                     <li><a href="#" class="nav__link link__hover-effect">Home</a></li>
                     <li><a href="#" class="nav__link link__hover-effect">Contact</a></li>
-                    <li><a href="#featured" class="nav__link nav__link--primary">Movies</a></li>
+                    <li><a href="#explore" class="nav__link nav__link--primary">Movies</a></li>
                 </ul>
                 <div class="menu__container">
                     <button class="btn__menu" onclick="openMenu()">
@@ -32,7 +32,7 @@
                                 <a href="#" class="menu__link link__hover-effect" onclick="closeMenu()">Home</a>
                             </li>
                             <li class="menu__list">
-                                <a href="#featured" class="menu__link link__hover-effect" onclick="closeMenu()">Movies</a>
+                                <a href="#explore" class="menu__link link__hover-effect" onclick="closeMenu()">Movies</a>
                             </li>
                             <li class="menu__list">
                                 <a class="menu__link no-cursor" onclick="closeMenu()">Contact</a>
@@ -47,7 +47,7 @@
                 <div class="header__description">
                     <h1 class="text--red website__title">Welcome to FilmStack</h1>
                     <h2 class="website__subtitle">A small platform to help you find your next favorite movie.</h2>
-                    <a href="#featured" class="btn">Browse Movies</a>
+                    <a href="#explore" class="btn">Browse Movies</a>
                 </div>
                 <figure class="figure__">
                     <img src="./assets/illustration_1.svg" alt="" class="img__">
@@ -98,6 +98,7 @@
                             </p>
                         </div>
                     </div>
+                    <p style="text-align: center; margin-top:16px; font-size:12px; font-weight: lighter; color: #ce3e3e; ">Please Note: We are unable to offer paid films at this time.</p>
                 </div>
             </div>
         </section>
@@ -108,7 +109,7 @@
                     <h2 class="section__title">
                         Featured <span class="text--red">Movies</span>
                     </h2>
-                    <div class="movies"></div>
+                    <div class="movies movies__featured"></div>
                 </div>
             </div>
         </section>
@@ -120,7 +121,7 @@
                         <h2 class="section__title">
                             <span class="text--red">Movie</span> Library
                         </h2>
-                        <input type="text" class="movies__search movies__sorter" placeholder="Search by Keyword, Genre, and More..">
+                        <input type="text" id="search-input" class="movies__search movies__sorter" placeholder="Search by Keyword, Genre, and More..">
                         <select name="Sort" id="sort" class="movies__sorter" onchange="handleSortChange(event)">
                             <option value="" disabled selected>Sort</option>
                             <option value="RATING_HIGH_TO_LOW">Rating, High to Low</option>
@@ -154,7 +155,7 @@
                         Can't find what you're looking for?
                     </h3>
                     <h1 class="section__title">Check out the Vault</h1>
-                    <a href="#" class="btn">Open FilmStack Vault</a>
+                    <a class="btn no-cursor">Open FilmStack Vault</a>
                 </div>
             </div>
         </section>
